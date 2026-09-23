@@ -1,0 +1,254 @@
+/* Claim Check web pages — colours mirror lib/design-tokens.ts (keep in sync if the palette changes). */
+
+:root {
+  --paper: #ECEEE9;
+  --paper-raised: #F6F7F3;
+  --booth: #1D2D3D;
+  --on-booth: #EEF1EC;
+  --on-booth-soft: rgba(238, 241, 236, 0.62);
+  --ink: #1D2D3D;
+  --ink-soft: #3C4B57;
+  --muted: #6C7A83;
+  --rule: rgba(29, 45, 61, 0.22);
+  --mark: rgba(29, 45, 61, 0.34);
+  --steel: #416180;
+  --steel-ink: #345069;
+  --overprint: rgba(65, 97, 128, 0.13);
+  --expired: #8C3A30;
+  --expired-wash: rgba(140, 58, 48, 0.10);
+  --todo: #8A6614;
+  --todo-wash: rgba(138, 102, 20, 0.14);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #141D25;
+    --paper-raised: #1C2833;
+    --booth: #0E161D;
+    --on-booth: #E2E6DF;
+    --on-booth-soft: rgba(226, 230, 223, 0.58);
+    --ink: #E2E6DF;
+    --ink-soft: #B6C0BB;
+    --muted: #8794A0;
+    --rule: rgba(226, 230, 223, 0.20);
+    --mark: rgba(226, 230, 223, 0.30);
+    --steel: #5980A6;
+    --steel-ink: #94BCE3;
+    --overprint: rgba(148, 188, 227, 0.16);
+    --expired: #D1897C;
+    --expired-wash: rgba(209, 137, 124, 0.13);
+    --todo: #D3B06A;
+    --todo-wash: rgba(211, 176, 106, 0.16);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper: #141D25;
+  --paper-raised: #1C2833;
+  --booth: #0E161D;
+  --on-booth: #E2E6DF;
+  --on-booth-soft: rgba(226, 230, 223, 0.58);
+  --ink: #E2E6DF;
+  --ink-soft: #B6C0BB;
+  --muted: #8794A0;
+  --rule: rgba(226, 230, 223, 0.20);
+  --mark: rgba(226, 230, 223, 0.30);
+  --steel: #5980A6;
+  --steel-ink: #94BCE3;
+  --overprint: rgba(148, 188, 227, 0.16);
+  --expired: #D1897C;
+  --expired-wash: rgba(209, 137, 124, 0.13);
+  --todo: #D3B06A;
+  --todo-wash: rgba(211, 176, 106, 0.16);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Barlow', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+a { color: var(--steel-ink); text-underline-offset: 3px; }
+a:hover { color: var(--steel); }
+
+/* ── booth header ─────────────────────────────── */
+.booth {
+  background: var(--booth);
+  color: var(--on-booth);
+  border-bottom: 3px solid var(--steel);
+}
+.booth-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 28px 16px 26px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.booth svg { width: 52px; height: 52px; flex: none; }
+.booth .kicker {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--on-booth-soft);
+  margin: 0 0 6px;
+}
+.booth h1 {
+  font-family: 'Barlow Condensed', 'Barlow', sans-serif;
+  font-weight: 700;
+  font-size: clamp(30px, 7vw, 40px);
+  line-height: 1;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* ── document ─────────────────────────────────── */
+main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+}
+
+.stub {
+  position: relative;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  padding: 24px 22px;
+}
+/* corner registration marks, as on the app's ticket stubs */
+.stub::before, .stub::after {
+  content: '+';
+  position: absolute;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  line-height: 1;
+  color: var(--mark);
+}
+.stub::before { top: 6px; left: 7px; }
+.stub::after { bottom: 6px; right: 7px; }
+
+.meta {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 18px;
+}
+
+h2 {
+  font-family: 'Barlow Condensed', 'Barlow', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 34px 0 8px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+}
+.stub > h2:first-of-type { margin-top: 8px; }
+
+h3 {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 20px 0 6px;
+}
+
+p, li { color: var(--ink-soft); }
+p { margin: 0 0 12px; }
+ul, ol { margin: 0 0 12px; padding-left: 22px; }
+li { margin-bottom: 6px; }
+strong { color: var(--ink); font-weight: 600; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0 16px;
+  font-size: 15px;
+}
+th, td {
+  text-align: left;
+  vertical-align: top;
+  padding: 9px 10px;
+  border-bottom: 1px solid var(--rule);
+}
+th {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+td { color: var(--ink-soft); }
+.table-wrap { overflow-x: auto; }
+
+code, .mono {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 0.9em;
+}
+
+.overprint {
+  display: inline-block;
+  background: var(--overprint);
+  color: var(--steel-ink);
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 7px;
+}
+
+.danger {
+  border: 1px solid var(--expired);
+  background: var(--expired-wash);
+  padding: 16px 18px;
+  margin: 12px 0 8px;
+}
+.danger h3 { color: var(--expired); margin-top: 0; }
+
+/* Unfilled placeholders — impossible to miss until replaced. */
+.todo {
+  background: var(--todo-wash);
+  color: var(--todo);
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 0.9em;
+  padding: 1px 5px;
+  outline: 1px dashed var(--todo);
+}
+
+footer {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 16px 40px;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+}
+
+@media (max-width: 480px) {
+  .stub { padding: 20px 16px; }
+  .booth svg { width: 42px; height: 42px; }
+}
