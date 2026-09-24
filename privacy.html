@@ -24,7 +24,7 @@
 
   <main>
     <article class="stub">
-      <p class="meta">Last updated 23 September 2026</p>
+      <p class="meta">Last updated 24 September 2026</p>
 
       <p>
         Warranty Tracker helps you keep track of the things you own and when their warranties run out.
@@ -55,9 +55,21 @@
       <h3>What you put on file</h3>
       <ul>
         <li><strong>Item details</strong>: item names, categories, purchase dates, prices and warranty periods.</li>
-        <li><strong>Photos</strong> you attach of products or receipts. Receipts can include personal
-          details such as your name, address or the last digits of a payment card, so photos are stored
-          privately: only your signed-in account can view them, through links that expire after an hour.</li>
+        <li><strong>Product photos</strong> you attach to your items.</li>
+        <li><strong>Receipts</strong> you scan or attach, from photos or PDF documents; the app keeps each
+          receipt as a PDF. Receipts can include personal details such as your name, address or the last
+          digits of a payment card, so photos and receipts are stored privately: only your signed-in
+          account can view them, through links that expire after an hour.</li>
+      </ul>
+
+      <h3>Scanning receipts</h3>
+      <ul>
+        <li>Scanning uses your phone's built-in document scanner: Google's ML Kit scanner on Android,
+          Apple's VisionKit on iPhone. The scan is processed entirely on your device; we only receive the
+          finished receipt when you save the item.</li>
+        <li>On Android, Google's scanner sends Google diagnostic information (such as your device model,
+          Android and app version, performance and error details, and an identifier for this installation)
+          to help it maintain the service. It does not send your scanned images.</li>
       </ul>
 
       <h3>Your plan</h3>
@@ -77,6 +89,8 @@
       <ul>
         <li>Your sign-in session, and the schedule of warranty expiry reminders. Reminders are local
           notifications created on your device; they don't pass through our servers.</li>
+        <li>Copies of the photos and receipts you've viewed, so they open quickly and work offline. They're
+          removed when you sign out or delete your account.</li>
       </ul>
 
       <h3>What we don't do</h3>
@@ -93,7 +107,7 @@
           </thead>
           <tbody>
             <tr><td>Creating your account and signing you in</td><td>Account data</td><td>Contract, Art. 6(1)(b)</td></tr>
-            <tr><td>Storing and showing your items, photos and reminders</td><td>Item details, photos</td><td>Contract, Art. 6(1)(b)</td></tr>
+            <tr><td>Storing and showing your items, photos, receipts and reminders</td><td>Item details, photos, receipts</td><td>Contract, Art. 6(1)(b)</td></tr>
             <tr><td>Unlocking Pro after a purchase</td><td>Plan status, purchase history</td><td>Contract, Art. 6(1)(b)</td></tr>
             <tr><td>Keeping the service secure and preventing abuse</td><td>Technical data</td><td>Legitimate interests, Art. 6(1)(f)</td></tr>
           </tbody>
@@ -103,9 +117,10 @@
       <h2>Who processes your data for us</h2>
       <p>We use a small number of providers, each bound by a data processing agreement:</p>
       <ul>
-        <li><strong>Supabase</strong>: database, sign-in and photo storage. Your data is hosted in
-          the European Union.</li>
-        <li><strong>Google</strong>: “Sign in with Google”, if you use it; Google Play for Android purchases.</li>
+        <li><strong>Supabase</strong>: database, sign-in and storage of photos and receipts. Your data
+          is hosted in the European Union.</li>
+        <li><strong>Google</strong>: “Sign in with Google”, if you use it; Google Play for Android purchases;
+          the document scanner on Android (see <em>Scanning receipts</em>).</li>
         <li><strong>Apple</strong>: “Sign in with Apple”, if you use it; the App Store for iOS purchases.</li>
         <li><strong>RevenueCat</strong>: confirms in-app purchases and keeps track of your Pro status.</li>
       </ul>
@@ -117,9 +132,9 @@
 
       <h2>How long we keep it</h2>
       <p>
-        We keep your account data, items and photos for as long as you have an account. When you delete
-        your account, all of it is deleted immediately. That covers your login, every item, every photo
-        and your categories. Server logs are kept by our hosting provider for a limited period for security
+        We keep your account data, items, photos and receipts for as long as you have an account. Deleting
+        an item deletes its photo and receipt too. When you delete your account, all of it is deleted
+        immediately. That covers your login, every item, every photo and receipt, and your categories. Server logs are kept by our hosting provider for a limited period for security
         purposes. Purchase records are kept by Apple, Google and RevenueCat under their own policies,
         partly because the law requires it.
       </p>
@@ -149,9 +164,9 @@
 
       <h2>Security</h2>
       <p>
-        All data travels over encrypted connections (HTTPS). Every item, category and photo is locked
-        to its owner at the database level, so no other account can read it, and photos are only ever
-        served through short-lived private links.
+        All data travels over encrypted connections (HTTPS). Every item, category, photo and receipt is
+        locked to its owner at the database level, so no other account can read it, and photos and
+        receipts are only ever served through short-lived private links.
       </p>
 
       <h2>Children</h2>
